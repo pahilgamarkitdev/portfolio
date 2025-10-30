@@ -1,15 +1,26 @@
+"use client";
+
 import React from 'react'
+import { motion } from "framer-motion";
+import { CardSpotlight } from './ui/card-spotlight';
+
 
 export default function About() {
   return (
-    <section
-      id='about'
-     className='
-     flex flex-col justify-center backdrop-blur-[1.5px] rounded-[0.5rem] shadow-light_shadow
-     xl:p-12 xl:mt-7 xl:mb-14 xl:gap-3 xl:text-[1.1rem]
-     mobile_s:p-5 mobile_s:mb-7 mobile_s:gap-2 mobile_s:text-base
-     dark:shadow-dark_shadow
-     '>
+    <CardSpotlight className="w-full" color="#19303a">
+      <motion.section
+        id='about'
+        className='
+        p-4
+        flex flex-col justify-center
+       xl:gap-3 xl:text-[1.1rem]
+        mobile_s:gap-2 mobile_s:text-base
+        dark:text-white
+      '
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.02 }}>
       <h1 className='hidden text-2xl font-bold
       mobile_s:block
       '>About</h1>
@@ -23,6 +34,9 @@ export default function About() {
       <p>
         I think taking a jack-of-all-trades route for now can help me become a better Software Engineer because, in the end, all the tech we use is just a tool, it just depends on the scenario on how and what tools we should use.
       </p>
-    </section>
+    </motion.section>
+
+  
+    </CardSpotlight>
   )
 }

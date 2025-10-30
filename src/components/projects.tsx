@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { Button } from "./ui/button";
+import { CardSpotlight } from "./ui/card-spotlight";
 import {
   Dialog,
   DialogContent,
@@ -27,17 +28,17 @@ export default function Projects() {
       {projectsData.map((project, index: number) => (
         <Dialog key={index} open={project.private ? false : undefined}>
           <DialogTrigger asChild>
-            <motion.div
-              key={index}
-              className={cn(
-                `sticky flex flex-col gap-3 backdrop-blur-xl rounded-[0.5rem] shadow-md cursor-pointer
-                    lg:p-10
-                    mobile_s:p-4
-                    bg-gradient-to-tr from-[#dae1e9] to-[#9dcbccc9]
-                  dark:text-white dark:bg-gradient-to-tl dark:from-[#28333e] dark:to-[#0a1b23]
+            <CardSpotlight className="w-full" color="#19303a">
+              <motion.div
+                key={index}
+                className={cn(
+                  `sticky flex flex-col gap-3 backdrop-blur-xl rounded-[0.5rem] shadow-md cursor-pointer
+                      lg:p-10
+                      mobile_s:p-4
+                      bg-gradient-to-tr from-[#dae1e9] to-[#9dcbccc9]
+                    dark:text-white dark:bg-gradient-to-tl dark:from-[#28333e] dark:to-[#19303a]
                     hover:shadow-light_shadow
-                    hover:dark:shadow-dark_shadow
-                    `,
+                    hover:dark:shadow-dark_shadow`,
                 project.private && "cursor-default"
               )}
               animate={{
@@ -119,7 +120,8 @@ export default function Projects() {
                   </div>
                 )}
               </div>
-            </motion.div>
+              </motion.div>
+            </CardSpotlight>
           </DialogTrigger>
 
           <DialogContent className="min-w-[80%] min-h-[80%] max-w-[80%] max-h-[80%] flex flex-col">

@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form'
 import { Button } from './ui/button'
+import { CardSpotlight } from './ui/card-spotlight'
 import { useToast } from '@/hooks/use-toast'
 import { contactSchema, ContactSchema } from '@/lib/schema'
 import { cn } from '@/lib/utils'
@@ -55,7 +56,8 @@ export default function Contact() {
   return (
     <div id='contact' className='min-h-full justify-center flex flex-col pt-32 pb-52'>
       <h1 className='text-2xl font-bold ml-auto mr-3'>Contact</h1>
-      <Form {...form}>
+      <CardSpotlight className="w-full" color="#19303a">
+        <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='flex flex-col gap-2'>
           <FormField
             control={form.control}
@@ -118,7 +120,7 @@ export default function Contact() {
           }>Submit</Button>
         </form>
       </Form>
-
+      </CardSpotlight>
     </div>
   )
 }
