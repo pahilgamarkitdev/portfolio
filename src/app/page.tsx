@@ -3,6 +3,7 @@ import Contact from "@/components/contact";
 import Experience from "@/components/experience";
 import Projects from "@/components/projects";
 import SectionLinks from "@/components/section-links";
+import DecryptedText from "@/components/DecryptedText";
 import SocialLinks from "@/components/social-links";
 import TechStack from "@/components/tech-stack";
 import { ModeToggle } from "@/components/ui/theme-toggle";
@@ -34,14 +35,17 @@ export default function Home() {
       "
       >
         <h1
-          className="font-bold bg-gradient-to-r dark:from-[#005F73] to-[#00B4D8] text-transparent bg-clip-text
-          from-[#090a0b] dark:to-[#c7cdd3] dark:text-transparent dark:bg-clip-text
-          lg:text-6xl lg:pb-8
-          md:text-5xl
-          mobile_s:text-3xl mobile_s:pb-5
-          "
+          className="font-bold lg:text-6xl lg:pb-8 md:text-5xl mobile_s:text-3xl mobile_s:pb-5"
         >
-          MARK LLOYD PAHILGA
+          <DecryptedText 
+            text="MARK LLOYD PAHILGA"
+            speed={100}
+            maxIterations={15}
+            characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            animateOn="both"
+            className="bg-gradient-to-r dark:from-[#005F73] to-[#00B4D8] text-transparent bg-clip-text from-[#090a0b] dark:to-[#c7cdd3]"
+            encryptedClassName="bg-gradient-to-r dark:from-[#005F73] to-[#00B4D8] text-transparent bg-clip-text from-[#090a0b] dark:to-[#c7cdd3] opacity-70"
+          />
         </h1>
 
         {/* headlines */}
@@ -94,7 +98,7 @@ export default function Home() {
         <div className="flex items-center justify-between">
           {/* social links */}
           <SocialLinks />
-          <ModeToggle />
+          {/*<ModeToggle />*/}
         </div>
       </section>
 

@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
+import { CardSpotlight } from "./ui/card-spotlight";
 
 type experienceType = {
   title: string;
@@ -29,13 +33,20 @@ export default function Experience() {
     <div id="experience" className="flex flex-col min-h-full justify-center">
       <h1 className="text-2xl font-bold px-3 ml-auto pb-2 pt-5">Experience</h1>
       {experience.map((experience, index) => (
-        <div
-          key={index}
-          className="flex flex-col gap-3 backdrop-blur-[1.5px] rounded-[0.5rem] shadow-light_shadow
-                    lg:p-10 lg:mb-6
-                    mobile_s:p-5 mobile_s:mb-4
-                    dark:shadow-dark_shadow
-                    "
+         <CardSpotlight className="w-full" color="#19303a">
+              <motion.div
+                id='about'
+                className='
+                p-4
+                flex flex-col justify-center
+               xl:gap-3 xl:text-[1.1rem]
+                mobile_s:gap-2 mobile_s:text-base
+                dark:text-white
+              '
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.02 }}
         >
           <h2
             className="font-bold
@@ -79,7 +90,8 @@ export default function Experience() {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
+        </CardSpotlight>
       ))}
     </div>
   );
