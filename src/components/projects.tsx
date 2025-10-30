@@ -29,25 +29,24 @@ export default function Projects() {
         <Dialog key={index} open={project.private ? false : undefined}>
           <DialogTrigger asChild>
             <CardSpotlight className="w-full" color="#19303a">
-              <motion.div
+              <motion.section
                 key={index}
                 className={cn(
-                  `sticky flex flex-col gap-3 backdrop-blur-xl rounded-[0.5rem] shadow-md cursor-pointer
-                      lg:p-10
-                      mobile_s:p-4
-                      bg-gradient-to-tr from-[#dae1e9] to-[#9dcbccc9]
-                    dark:text-white dark:bg-gradient-to-tl dark:from-[#28333e] dark:to-[#19303a]
-                    hover:shadow-light_shadow
-                    hover:dark:shadow-dark_shadow`,
-                project.private && "cursor-default"
-              )}
-              animate={{
-                borderTopColor: `hsl(0, 0%,${0 + index * 20}%)`,
-                borderTopWidth: 1 + index * 0.1,
-                top: 35 + index * 10,
-                zIndex: projectsData.length + index,
-              }}
-            >
+   'p-4flex flex-col justify-center xl:gap-3 xl:text-[1.1rem] mobile_s:gap-2 mobile_s:text-base dark:text-white',         
+             project.private && "cursor-default"
+                )}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{
+                  borderTopColor: `hsl(0, 0%,${0 + index * 20}%)`,
+                  borderTopWidth: 1 + index * 0.1,
+                  top: 35 + index * 10,
+                  zIndex: projectsData.length + index,
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.02 }}
+              >
               <div className="flex items-center justify-between text-end">
                 <h2
                   className="font-bold
@@ -120,7 +119,7 @@ export default function Projects() {
                   </div>
                 )}
               </div>
-              </motion.div>
+              </motion.section>
             </CardSpotlight>
           </DialogTrigger>
 
