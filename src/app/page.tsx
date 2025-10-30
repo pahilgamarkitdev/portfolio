@@ -6,7 +6,6 @@ import SectionLinks from "@/components/section-links";
 import DecryptedText from "@/components/DecryptedText";
 import SocialLinks from "@/components/social-links";
 import TechStack from "@/components/tech-stack";
-import { ModeToggle } from "@/components/ui/theme-toggle";
 const heads = [
   "FULLSTACK DEVELOPER",
   "INFORMATION TECHNOLOGY",

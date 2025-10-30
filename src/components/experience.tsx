@@ -32,17 +32,17 @@ export default function Experience() {
   return (
     <div id="experience" className="flex flex-col min-h-full justify-center">
       <h1 className="text-2xl font-bold px-3 ml-auto pb-2 pt-5">Experience</h1>
-      {experience.map((experience, index) => (
-         <CardSpotlight className="w-full" color="#19303a">
-              <motion.div
-                id='about'
-                className='
-                p-4
-                flex flex-col justify-center
-               xl:gap-3 xl:text-[1.1rem]
-                mobile_s:gap-2 mobile_s:text-base
-                dark:text-white
-              '
+    {experience.map((experienceItem, idx) => (
+      <CardSpotlight key={experienceItem.title + idx} className="w-full" color="#19303a">
+        <motion.div
+          id='about'
+          className='
+            p-4
+            flex flex-col justify-center
+            xl:gap-3 xl:text-[1.1rem]
+            mobile_s:gap-2 mobile_s:text-base
+            dark:text-white
+          '
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -54,12 +54,12 @@ export default function Experience() {
                             mobile_s:text-lg 
                         "
           >
-            {experience.title}
+            {experienceItem.title}
           </h2>
 
           <div className="flex items-center justify-between gap-2">
             <Link
-              href={experience.link || "#"}
+              href={experienceItem.link || "#"}
               className="cursor-pointer dark:hover:text-teal-100 hover:text-teal-800"
               target="_blank"
               rel="noopener noreferrer"
@@ -70,15 +70,15 @@ export default function Experience() {
                             mobile_s:text-sm
                             "
               >
-                {experience.company}
+                {experienceItem.company}
               </h3>
             </Link>
             <p className="lg:text-[1.1rem] mobile_s:text-sm">
-              {experience.date}
+              {experienceItem.date}
             </p>
           </div>
           <ul>
-            {experience.accomplishment.map((accomplishment, index) => (
+            {experienceItem.accomplishment.map((accomplishment: string, index: number) => (
               <li
                 key={index}
                 className="list-disc ml-5
@@ -91,8 +91,8 @@ export default function Experience() {
             ))}
           </ul>
         </motion.div>
-        </CardSpotlight>
-      ))}
+      </CardSpotlight>
+    ))}
     </div>
   );
 }
